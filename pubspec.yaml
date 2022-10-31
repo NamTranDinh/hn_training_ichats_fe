@@ -9,8 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+# lottie
+  lottie: ^1.4.3
+
 # icons
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   flutter_icons: ^1.1.0
 # bloc: => state manager
   equatable: ^2.0.5
@@ -20,8 +23,8 @@ dependencies:
 # expandable text
   expandable_text: ^2.3.0
 # firebase
-  firebase_auth: ^4.0.2
-  firebase_core: ^2.1.0
+  firebase_auth: ^4.1.0
+  firebase_core: ^2.1.1
   google_sign_in: ^5.4.2
   cloud_firestore: ^4.0.3
 # meta: ?
@@ -42,16 +45,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 
 flutter:
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - assets/lottie_files/
 
   # fonts:
   #   - family: Schyler
