@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:i_chat/main.dart';
+import 'package:i_chat/main_ichat.dart';
 
 void main() {
 
