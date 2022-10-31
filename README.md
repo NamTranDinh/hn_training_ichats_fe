@@ -1,16 +1,2 @@
-# i_chat
-
-IChat Application
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![clean architechture 2](https://user-images.githubusercontent.com/111859625/198953636-ce1ca3ad-5d12-499e-9209-edaa17fb1563.png)
+![clean architechture 1](https://user-images.githubusercontent.com/111859625/198953650-731ca2b4-245c-4cd6-9f3b-f702c71869e4.png)
