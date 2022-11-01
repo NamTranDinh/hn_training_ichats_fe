@@ -1,8 +1,26 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:i_chat/src/presentation/pages/sign_in_page.dart';
 import 'package:lottie/lottie.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
+
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+
+  @override
+  void initState(){
+    super.initState();
+    Timer(
+        const Duration(milliseconds: 3900),
+            () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const SignInPage())));
+  }
 
   @override
   Widget build(BuildContext context) {

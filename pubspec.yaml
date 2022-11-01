@@ -9,36 +9,38 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-# lottie
+  # lottie
   lottie: ^1.4.3
 
-# icons
+  # icons
   cupertino_icons: ^1.0.5
   flutter_icons: ^1.1.0
-# bloc: => state manager
+  # bloc: => state manager
   equatable: ^2.0.5
   flutter_bloc: ^8.1.1
-# intl: => date format
+  # intl: => date format
   intl: ^0.17.0
-# expandable text
+  # expandable text
   expandable_text: ^2.3.0
-# firebase
+  # firebase
   firebase_auth: ^4.1.0
   firebase_core: ^2.1.1
   google_sign_in: ^5.4.2
   cloud_firestore: ^4.0.3
-# meta: ?
+  # meta: ?
   meta: ^1.8.0
-# get_it: ?
+  # get_it: ?
   get_it: ^7.2.0
-# cached_network_image:
+  # cached_network_image:
   cached_network_image: ^3.2.2
-# flutterToast:
+  # flutterToast:
   fluttertoast: ^8.1.1
-# image_picker:
+  # image_picker:
   image_picker: ^0.8.6
-# bubble:
+  # bubble:
   bubble: ^1.2.1
+  # edge_alerts:
+  edge_alert: ^0.0.1
 
 
 
@@ -52,9 +54,15 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/fonts/
     - assets/images/
     - assets/lottie_files/
+
+  fonts:
+    - family: Poppins-Regular
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 700
+
 
   # fonts:
   #   - family: Schyler
