@@ -50,7 +50,7 @@ class ButtonText extends StatelessWidget {
             backgroundColor: backgroundColor ?? Colors.blue,
             side: BorderSide(
               width: borderSize ?? 0,
-              color: borderColor ?? Colors.purple,
+              color: borderColor ?? Colors.blue,
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(radius ?? 3)),

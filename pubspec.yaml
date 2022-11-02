@@ -41,6 +41,8 @@ dependencies:
   bubble: ^1.2.1
   # edge_alerts:
   edge_alert: ^0.0.1
+  #flutter_svg:
+  flutter_svg: ^1.1.6
 
 
 
@@ -62,7 +64,18 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
           weight: 700
-
+    - family: Poppins-Bold
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+    - family: Poppins-Thin
+      fonts:
+        - asset: assets/fonts/Poppins-Thin.ttf
+          weight: 700
+    - family: Poppins-Medium
+      fonts:
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 700
 
   # fonts:
   #   - family: Schyler

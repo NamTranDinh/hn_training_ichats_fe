@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const Color backgroundColorApp = Color.fromRGBO(245,245,245, 1);
+
 const Color purple900 = Color.fromRGBO(91, 52, 134, 1);
 const Color purple700 = Color.fromRGBO(109, 73, 146, 1);
 const Color purple500 = Color.fromRGBO(136, 104, 170, 1);

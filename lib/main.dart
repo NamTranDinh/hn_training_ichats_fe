@@ -8,7 +8,7 @@ void main() {
     title: 'IChats',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(primaryColor: Colors.purple[800]),
-    initialRoute: OnGenerateRoute.welcomeRoute,
+    initialRoute: OnGenerateRoute.forgetPassRoute,
     onGenerateRoute: OnGenerateRoute.route,
     // routes: {
     //   OnGenerateRoute.welcomeRoute: (context) {
