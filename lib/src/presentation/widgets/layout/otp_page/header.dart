@@ -38,7 +38,7 @@ class Header extends StatelessWidget {
                 ),
               ),
               const Text(
-                'Forgot Password',
+                'Email Verification',
                 style: TextStyle(
                   fontFamily: 'Poppins-Medium',
                   fontSize: 20,
@@ -53,7 +53,7 @@ class Header extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                titleApp ?? 'Mail Address Here',
+                titleApp ?? 'Get Your OTP',
                 style: const TextStyle(
                     color: purple900,
                     fontFamily: 'Poppins-Bold',
@@ -64,7 +64,7 @@ class Header extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
               Text(
-                "Enter email address associated with your account!".toUpperCase(),
+                "Please enter the 4 digit code that sent to your email address!".toUpperCase(),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     fontFamily: 'Poppins-Medium',

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../widgets/layout/signup_page/body.dart';
-import '../widgets/layout/signup_page/footer.dart';
-import '../widgets/layout/signup_page/header.dart';
-import '../widgets/theme/app_color.dart';
+import '../../widgets/layout/signin_page/body.dart';
+import '../../widgets/layout/signin_page/footer.dart';
+import '../../widgets/layout/signin_page/header.dart';
+import '../../widgets/theme/app_color.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignInPage extends StatelessWidget {
+  const SignInPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,7 @@ class SignUpPage extends StatelessWidget {
                       Body(),
                     ],
                   ),
-                  const Align(
-                      alignment: Alignment.bottomCenter, child: Footer()),
+                  const Align(alignment: Alignment.bottomCenter, child: Footer()),
                 ],
               ),
             ),

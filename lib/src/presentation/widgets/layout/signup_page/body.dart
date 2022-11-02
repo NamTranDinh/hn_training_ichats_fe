@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/email_form_field.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/password_form_text.dart';
 import '../../drawable/button_text.dart';
@@ -66,7 +67,7 @@ class Body extends StatelessWidget {
         ),
         GestureDetector(
             onTap: () {
-
+              Navigator.pushNamed(context, RouteConst.signInRoute);
             },
             child: const Text(
               'or log in instead',

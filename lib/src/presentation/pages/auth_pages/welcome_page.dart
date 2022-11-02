@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:i_chat/src/presentation/pages/sign_in_page.dart';
+import 'package:i_chat/src/presentation/pages/auth_pages/sign_in_page.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatefulWidget {

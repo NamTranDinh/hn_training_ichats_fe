@@ -13,8 +13,8 @@ class PasswordFormField extends StatefulWidget {
   final FocusNode? focusNote;
   final IconData? prefixIcon;
   final Color? borderColor;
-  final Color? backgroundColor;
   final double? borderSize;
+  final Color? backgroundColor;
   final double? radius;
   final StyleOutLinePass styleOutLinePass;
   final EdgeInsets? margin;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:i_chat/src/config/app_const.dart';
-import 'package:i_chat/src/presentation/widgets/drawable/email_form_field.dart';
-import 'package:i_chat/src/presentation/widgets/drawable/password_form_text.dart';
 import '../../drawable/button_text.dart';
+import '../../drawable/email_form_field.dart';
+import '../../drawable/password_form_text.dart';
 import '../../theme/app_color.dart';
 
 class Body extends StatelessWidget {
@@ -10,31 +10,44 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var emailController = TextEditingController();
+    var passController = TextEditingController();
+    var rePassController = TextEditingController();
     return Column(
       children: [
         const SizedBox(height: 56),
-        EmailFormField(
-          controller: emailController,
-          onChanged: (value) {
-            value = emailController.text;
+        PasswordFormField(
+          onChanged: (value) {},
+          validator: (value) {
+            value = passController.text;
           },
-          validator: (value) {},
-          styleOutLineEmail: StyleOutLineEmail.outlineInputBorder,
+          styleOutLinePass: StyleOutLinePass.outlineInputBorder,
           borderColor: purple900,
+          controller: passController,
+          textInputAction: TextInputAction.next,
+          labelText: 'New Password',
+        ),
+        const SizedBox(height: 8),
+        PasswordFormField(
+          onChanged: (value) {},
+          validator: (value) {
+            value = rePassController.text;
+          },
+          styleOutLinePass: StyleOutLinePass.outlineInputBorder,
+          borderColor: purple900,
+          controller: passController,
           textInputAction: TextInputAction.done,
-          prefixIcon: Icons.email,
+          labelText: 'Confirm Password',
         ),
         const SizedBox(height: 8),
         ButtonText(
           onPressed: () {
-            Navigator.pushNamed(context, RouteConst.getOtpRoute);
+            Navigator.pushNamed(context, RouteConst.signInRoute);
           },
           height: 46,
           backgroundColor: purple700,
           radius: 23,
           isUppercase: true,
-          text: 'recover password',
+          text: 'Confirm',
         ),
         const SizedBox(
           height: 15,

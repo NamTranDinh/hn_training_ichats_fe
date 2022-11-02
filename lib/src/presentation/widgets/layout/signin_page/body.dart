@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/email_form_field.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/password_form_text.dart';
 import 'package:i_chat/src/route/on_generate_route.dart';
@@ -39,10 +40,25 @@ class Body extends StatelessWidget {
           controller: passController,
           textInputAction: TextInputAction.done,
         ),
+        Container(
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 16.0, top: 6.0, bottom: 4.0),
+          child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, RouteConst.forgotPassRoute);
+              },
+              child: const Text(
+                'Forgot password?',
+                style: TextStyle(
+                    fontFamily: 'Poppins-Bold',
+                    fontSize: 12,
+                    color: Colors.deepPurple),
+              )),
+        ),
         const SizedBox(height: 12),
         ButtonText(
           onPressed: () {
-            print(emailController.text);
+
           },
           height: 46,
           backgroundColor: purple700,
@@ -55,7 +71,7 @@ class Body extends StatelessWidget {
         ),
         GestureDetector(
             onTap: () {
-
+              Navigator.pushNamed(context, RouteConst.signupRoute);
             },
             child: const Text(
               'or create an account',
