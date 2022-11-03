@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../widgets/layout/reset_password_page/body.dart';
-import '../../widgets/layout/reset_password_page/footer.dart';
-import '../../widgets/layout/reset_password_page/header.dart';
+import '../../widgets/layout/auth_pages/reset_password_page/body.dart';
+import '../../widgets/layout/auth_pages/reset_password_page/footer.dart';
+import '../../widgets/layout/auth_pages/reset_password_page/header.dart';
 import '../../widgets/theme/app_color.dart';
 
 class ResetPasswordPage extends StatelessWidget {

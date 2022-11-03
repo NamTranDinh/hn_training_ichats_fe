@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:i_chat/src/presentation/widgets/layout/forget_password_page/body.dart';
-import 'package:i_chat/src/presentation/widgets/layout/forget_password_page/footer.dart';
-import '../../widgets/layout/forget_password_page/header.dart';
+import '../../widgets/layout/auth_pages/forget_password_page/body.dart';
+import '../../widgets/layout/auth_pages/forget_password_page/footer.dart';
+import '../../widgets/layout/auth_pages/forget_password_page/header.dart';
 import '../../widgets/theme/app_color.dart';
 
 class ForgetPasswordPage extends StatelessWidget {
@@ -10,9 +9,6 @@ class ForgetPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget svg = SvgPicture.asset(
-      'assets/images/background.svg',
-    );
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Scaffold(

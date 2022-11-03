@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../theme/app_color.dart';
+
+import '../../../theme/app_color.dart';
 
 class Header extends StatelessWidget {
   final String? titleApp;
@@ -38,7 +39,7 @@ class Header extends StatelessWidget {
                 ),
               ),
               const Text(
-                'Email Verification',
+                'Reset Password',
                 style: TextStyle(
                   fontFamily: 'Poppins-Medium',
                   fontSize: 20,
@@ -53,7 +54,7 @@ class Header extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                titleApp ?? 'Get Your OTP',
+                titleApp ?? 'Enter New Password',
                 style: const TextStyle(
                     color: purple900,
                     fontFamily: 'Poppins-Bold',
@@ -64,7 +65,7 @@ class Header extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
               Text(
-                "Please enter the 4 digit code that sent to your email address!".toUpperCase(),
+                "Your new password must be different from preciously used password!".toUpperCase(),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     fontFamily: 'Poppins-Medium',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../widgets/layout/otp_page/body.dart';
-import '../../widgets/layout/otp_page/footer.dart';
-import '../../widgets/layout/otp_page/header.dart';
+import '../../widgets/layout/auth_pages/otp_page/header.dart';
+import '../../widgets/layout/auth_pages/otp_page/body.dart';
+import '../../widgets/layout/auth_pages/otp_page/footer.dart';
 import '../../widgets/theme/app_color.dart';
 
 class OtpPage extends StatelessWidget {

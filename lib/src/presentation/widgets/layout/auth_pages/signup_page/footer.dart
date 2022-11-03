@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../theme/app_color.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);

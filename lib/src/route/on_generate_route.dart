@@ -4,6 +4,8 @@ import 'package:i_chat/src/presentation/pages/auth_pages/forget_password_page.da
 import 'package:i_chat/src/presentation/pages/auth_pages/reset_password_page.dart';
 import 'package:i_chat/src/presentation/pages/auth_pages/sign_in_page.dart';
 import 'package:i_chat/src/presentation/pages/auth_pages/welcome_page.dart';
+import 'package:i_chat/src/presentation/pages/iChats_pages/iChats_page.dart';
+import 'package:i_chat/src/presentation/widgets/layout/iChats_pages/home_page.dart';
 import '../presentation/pages/auth_pages/error_page.dart';
 import '../presentation/pages/auth_pages/otp_page.dart';
 import '../presentation/pages/auth_pages/sign_up_page.dart';
@@ -36,6 +38,10 @@ class OnGenerateRoute {
       case RouteConst.resetPasswordRoute:
         {
           return _toPageRoute(route: const ResetPasswordPage());
+        }
+      case RouteConst.iChatsRoutes:
+        {
+          return _toPageRoute(route: const IChatsPage());
         }
       default:
         return _toPageRoute(route: const ErrorPage());

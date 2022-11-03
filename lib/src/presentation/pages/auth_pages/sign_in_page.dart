@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../widgets/layout/signin_page/body.dart';
-import '../../widgets/layout/signin_page/footer.dart';
-import '../../widgets/layout/signin_page/header.dart';
+import '../../widgets/layout/auth_pages/signin_page/body.dart';
+import '../../widgets/layout/auth_pages/signin_page/footer.dart';
+import '../../widgets/layout/auth_pages/signin_page/header.dart';
 import '../../widgets/theme/app_color.dart';
 
 class SignInPage extends StatelessWidget {
