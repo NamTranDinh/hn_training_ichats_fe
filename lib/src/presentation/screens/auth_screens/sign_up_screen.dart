@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../widgets/layout/auth_pages/signup_page/body.dart';
-import '../../widgets/layout/auth_pages/signup_page/footer.dart';
-import '../../widgets/layout/auth_pages/signup_page/header.dart';
+import '../../widgets/layout/auth_layouts/signup_layout/body.dart';
+import '../../widgets/layout/auth_layouts/signup_layout/footer.dart';
+import '../../widgets/layout/auth_layouts/signup_layout/header.dart';
 import '../../widgets/theme/app_color.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

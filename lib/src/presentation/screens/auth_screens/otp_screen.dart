@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../widgets/layout/auth_pages/otp_page/header.dart';
-import '../../widgets/layout/auth_pages/otp_page/body.dart';
-import '../../widgets/layout/auth_pages/otp_page/footer.dart';
+import '../../widgets/layout/auth_layouts/otp_layout/header.dart';
+import '../../widgets/layout/auth_layouts/otp_layout/body.dart';
+import '../../widgets/layout/auth_layouts/otp_layout/footer.dart';
 import '../../widgets/theme/app_color.dart';
 
-class OtpPage extends StatelessWidget {
-  const OtpPage({Key? key}) : super(key: key);
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

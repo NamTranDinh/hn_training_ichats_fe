@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../widgets/layout/auth_pages/reset_password_page/body.dart';
-import '../../widgets/layout/auth_pages/reset_password_page/footer.dart';
-import '../../widgets/layout/auth_pages/reset_password_page/header.dart';
+import '../../widgets/layout/auth_layouts/forget_password_layout/body.dart';
+import '../../widgets/layout/auth_layouts/forget_password_layout/footer.dart';
+import '../../widgets/layout/auth_layouts/forget_password_layout/header.dart';
 import '../../widgets/theme/app_color.dart';
 
-class ResetPasswordPage extends StatelessWidget {
-  const ResetPasswordPage({Key? key}) : super(key: key);
+class ForgetPasswordScreen extends StatelessWidget {
+  const ForgetPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

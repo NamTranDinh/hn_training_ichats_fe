@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../widgets/layout/auth_pages/signin_page/body.dart';
-import '../../widgets/layout/auth_pages/signin_page/footer.dart';
-import '../../widgets/layout/auth_pages/signin_page/header.dart';
+import '../../widgets/layout/auth_layouts/signin_layout/body.dart';
+import '../../widgets/layout/auth_layouts/signin_layout/footer.dart';
+import '../../widgets/layout/auth_layouts/signin_layout/header.dart';
 import '../../widgets/theme/app_color.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

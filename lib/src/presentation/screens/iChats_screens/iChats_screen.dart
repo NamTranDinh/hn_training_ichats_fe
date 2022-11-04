@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:i_chat/src/presentation/widgets/layout/iChats_pages/call_page.dart';
-import 'package:i_chat/src/presentation/widgets/layout/iChats_pages/setting_page.dart';
+import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/app_bar_layout/tool_bar.dart';
+import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/body_layout/call.dart';
+import 'package:i_chat/src/presentation/widgets/theme/app_color.dart';
 
 import '../../widgets/drawable/custom_nav_bar_with_animation.dart';
-import '../../widgets/layout/iChats_pages/home_page.dart';
+import '../../widgets/layout/iChats_layout/body_layout/home.dart';
+import '../../widgets/layout/iChats_layout/body_layout/setting.dart';
 
-class IChatsPage extends StatefulWidget {
-  const IChatsPage({Key? key}) : super(key: key);
+class IChatsScreen extends StatefulWidget {
+  const IChatsScreen({Key? key}) : super(key: key);
 
   @override
-  State<IChatsPage> createState() => _IChatsPageState();
+  State<IChatsScreen> createState() => _IChatsScreenState();
 }
 
-class _IChatsPageState extends State<IChatsPage> {
+class _IChatsScreenState extends State<IChatsScreen> {
   int _currentIndex = 0;
 
-  final _inactiveColor = Colors.grey;
+  final _inactiveColor = const Color.fromRGBO(186, 184, 194, 1);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text("iChats App"),
-          backgroundColor: Colors.green[200],
+        appBar: Toolbar(
+          titleToolBar: GetTitleToolBar.values[_currentIndex].name,
+          indexCurrent: _currentIndex,
         ),
         body: getBody(),
         bottomNavigationBar: _buildBottomBar());
@@ -36,27 +37,27 @@ class _IChatsPageState extends State<IChatsPage> {
       selectedIndex: _currentIndex,
       showElevation: true,
       itemCornerRadius: 24,
-      curve: Curves.easeIn,
+      curve: Curves.decelerate,
       onItemSelected: (index) => setState(() => _currentIndex = index),
       items: [
-        BottomNavyBarItem(
+        BottomNaviBarItem(
           icon: const Icon(Icons.home),
           title: const Text('Home'),
-          activeColor: Colors.green,
+          activeColor: purple900,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
         ),
-        BottomNavyBarItem(
+        BottomNaviBarItem(
           icon: const Icon(Icons.videocam_outlined),
           title: const Text('Call'),
-          activeColor: Colors.purpleAccent,
+          activeColor: purple900,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
         ),
-        BottomNavyBarItem(
+        BottomNaviBarItem(
           icon: const Icon(Icons.settings),
           title: const Text('Settings'),
-          activeColor: Colors.blue,
+          activeColor: purple900,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
         ),
@@ -66,13 +67,21 @@ class _IChatsPageState extends State<IChatsPage> {
 
   Widget getBody() {
     List<Widget> pages = [
-      const HomePage(),
-      const CallPage(),
-      const SettingPage(),
+      const Home(),
+      const Call(),
+      const Setting(),
     ];
     return IndexedStack(
       index: _currentIndex,
       children: pages,
     );
   }
+}
+
+enum GetTitleToolBar {
+  iChats,
+  // ignore: constant_identifier_names
+  Call,
+  // ignore: constant_identifier_names
+  Setting
 }

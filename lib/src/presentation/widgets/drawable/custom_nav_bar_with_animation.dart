@@ -5,11 +5,11 @@ class CustomNavBarWithAnimation extends StatelessWidget {
     Key? key,
     this.selectedIndex = 0,
     this.showElevation = true,
-    this.iconSize = 24,
+    this.iconSize = 26,
     this.backgroundColor,
     this.itemCornerRadius = 50,
-    this.containerHeight = 56,
-    this.animationDuration = const Duration(milliseconds: 270),
+    this.containerHeight = 46,
+    this.animationDuration = const Duration(milliseconds: 160),
     this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
     required this.items,
     required this.onItemSelected,
@@ -22,7 +22,7 @@ class CustomNavBarWithAnimation extends StatelessWidget {
   final Color? backgroundColor;
   final bool showElevation;
   final Duration animationDuration;
-  final List<BottomNavyBarItem> items;
+  final List<BottomNaviBarItem> items;
   final ValueChanged<int> onItemSelected;
   final MainAxisAlignment mainAxisAlignment;
   final double itemCornerRadius;
@@ -48,7 +48,7 @@ class CustomNavBarWithAnimation extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: containerHeight,
-          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Row(
             mainAxisAlignment: mainAxisAlignment,
             children: items.map((item) {
@@ -76,7 +76,7 @@ class CustomNavBarWithAnimation extends StatelessWidget {
 class _ItemWidget extends StatelessWidget {
   final double iconSize;
   final bool isSelected;
-  final BottomNavyBarItem item;
+  final BottomNaviBarItem item;
   final Color backgroundColor;
   final double itemCornerRadius;
   final Duration animationDuration;
@@ -99,48 +99,50 @@ class _ItemWidget extends StatelessWidget {
       container: true,
       selected: isSelected,
       child: AnimatedContainer(
-        width: isSelected ? 130 : 50,
+        width: isSelected ? 120 : 80,
         height: double.maxFinite,
         duration: animationDuration,
         curve: curve,
         decoration: BoxDecoration(
           color:
-              isSelected ? item.activeColor.withOpacity(0.2) : backgroundColor,
+              isSelected ? item.activeColor.withOpacity(0.8) : backgroundColor,
           borderRadius: BorderRadius.circular(itemCornerRadius),
         ),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: const NeverScrollableScrollPhysics(),
           child: Container(
-            width: isSelected ? 130 : 50,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
+            width: isSelected ? 120 : 80,
+            padding: const EdgeInsets.symmetric(horizontal: 0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
+              children: [
+                /// icon
                 IconTheme(
                   data: IconThemeData(
-                    size: iconSize,
+                    size: isSelected ? (iconSize + 6) : iconSize,
                     color: isSelected
-                        ? item.activeColor.withOpacity(1)
+                        ? Colors.white
                         : item.inactiveColor ?? item.activeColor,
                   ),
                   child: item.icon,
                 ),
+
+                /// title
                 if (isSelected)
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: DefaultTextStyle.merge(
-                        style: TextStyle(
-                          color: item.activeColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        maxLines: 1,
-                        textAlign: item.textAlign,
-                        child: item.title,
+                  Container(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: DefaultTextStyle.merge(
+                      style: const TextStyle(
+                        fontFamily: 'Poppins-Regular',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
+                      maxLines: 1,
+                      textAlign: item.textAlign,
+                      child: item.title,
                     ),
                   ),
               ],
@@ -152,8 +154,8 @@ class _ItemWidget extends StatelessWidget {
   }
 }
 
-class BottomNavyBarItem {
-  BottomNavyBarItem({
+class BottomNaviBarItem {
+  BottomNaviBarItem({
     required this.icon,
     required this.title,
     this.activeColor = Colors.blue,

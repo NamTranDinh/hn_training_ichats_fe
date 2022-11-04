@@ -1,17 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:i_chat/src/presentation/pages/auth_pages/sign_in_page.dart';
+import 'package:i_chat/src/presentation/screens/auth_screens/sign_in_screen.dart';
 import 'package:lottie/lottie.dart';
 
-class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<WelcomePage> createState() => _WelcomePageState();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _WelcomePageState extends State<WelcomePage> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   void initState(){
@@ -19,7 +19,7 @@ class _WelcomePageState extends State<WelcomePage> {
     Timer(
         const Duration(milliseconds: 3900),
             () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const SignInPage())));
+            MaterialPageRoute(builder: (context) => const SignInScreen())));
   }
 
   @override

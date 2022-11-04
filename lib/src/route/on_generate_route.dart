@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:i_chat/src/config/app_const.dart';
-import 'package:i_chat/src/presentation/pages/auth_pages/forget_password_page.dart';
-import 'package:i_chat/src/presentation/pages/auth_pages/reset_password_page.dart';
-import 'package:i_chat/src/presentation/pages/auth_pages/sign_in_page.dart';
-import 'package:i_chat/src/presentation/pages/auth_pages/welcome_page.dart';
-import 'package:i_chat/src/presentation/pages/iChats_pages/iChats_page.dart';
-import 'package:i_chat/src/presentation/widgets/layout/iChats_pages/home_page.dart';
-import '../presentation/pages/auth_pages/error_page.dart';
-import '../presentation/pages/auth_pages/otp_page.dart';
-import '../presentation/pages/auth_pages/sign_up_page.dart';
+import 'package:i_chat/src/presentation/screens/auth_screens/forget_password_screen.dart';
+import 'package:i_chat/src/presentation/screens/auth_screens/reset_password_screen.dart';
+import 'package:i_chat/src/presentation/screens/auth_screens/sign_in_screen.dart';
+import 'package:i_chat/src/presentation/screens/auth_screens/welcome_screen.dart';
+import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dart';
+import '../presentation/screens/auth_screens/error_screen.dart';
+import '../presentation/screens/auth_screens/otp_screen.dart';
+import '../presentation/screens/auth_screens/sign_up_screen.dart';
 
 class OnGenerateRoute {
   static Route<dynamic> route(RouteSettings routeSettings) {
@@ -17,34 +16,34 @@ class OnGenerateRoute {
     switch (namesRoutes) {
       case RouteConst.welcomeRoute:
         {
-          return _toPageRoute(route: const WelcomePage());
+          return _toPageRoute(route: const WelcomeScreen());
         }
       case RouteConst.signInRoute:
         {
-          return _toPageRoute(route: const SignInPage());
+          return _toPageRoute(route: const SignInScreen());
         }
       case RouteConst.signupRoute:
         {
-          return _toPageRoute(route: const SignUpPage());
+          return _toPageRoute(route: const SignUpScreen());
         }
       case RouteConst.forgotPassRoute:
         {
-          return _toPageRoute(route: const ForgetPasswordPage());
+          return _toPageRoute(route: const ForgetPasswordScreen());
         }
       case RouteConst.getOtpRoute:
         {
-          return _toPageRoute(route: const OtpPage());
+          return _toPageRoute(route: const OtpScreen());
         }
       case RouteConst.resetPasswordRoute:
         {
-          return _toPageRoute(route: const ResetPasswordPage());
+          return _toPageRoute(route: const ResetPasswordScreen());
         }
       case RouteConst.iChatsRoutes:
         {
-          return _toPageRoute(route: const IChatsPage());
+          return _toPageRoute(route: const IChatsScreen());
         }
       default:
-        return _toPageRoute(route: const ErrorPage());
+        return _toPageRoute(route: const ErrorScreen());
     }
   }
 }
