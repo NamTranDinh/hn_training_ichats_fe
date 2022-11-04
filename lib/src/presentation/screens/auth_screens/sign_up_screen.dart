@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/layout/auth_layouts/signup_layout/body.dart';
 import '../../widgets/layout/auth_layouts/signup_layout/footer.dart';
 import '../../widgets/layout/auth_layouts/signup_layout/header.dart';
-import '../../widgets/theme/app_color.dart';
+import '../../../config/theme/app_color.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);

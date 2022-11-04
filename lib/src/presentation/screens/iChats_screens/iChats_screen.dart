@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/app_bar_layout/tool_bar.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/body_layout/call.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/body_layout/group.dart';
-import 'package:i_chat/src/presentation/widgets/theme/app_color.dart';
+import '../../../config/theme/app_color.dart';
 
 import '../../widgets/drawable/custom_nav_bar_with_animation.dart';
 import '../../widgets/layout/iChats_layout/body_layout/home.dart';
@@ -33,6 +33,7 @@ class _IChatsScreenState extends State<IChatsScreen> {
 
   Widget _buildBottomBar() {
     return CustomNavBarWithAnimation(
+      totalItem: 4,
       containerHeight: 70,
       backgroundColor: Colors.white,
       selectedIndex: _currentIndex,

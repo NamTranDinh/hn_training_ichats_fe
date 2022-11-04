@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../drawable/custom_nav_bar_with_animation.dart';
-import '../../../theme/app_color.dart';
+import '../../../../../config/theme/app_color.dart';
 import '../body_layout/home.dart';
 import '../body_layout/setting.dart';
 
@@ -21,6 +21,7 @@ class _NavBarBottomLayoutState extends State<NavBarBottomLayout> {
   @override
   Widget build(BuildContext context) {
     return CustomNavBarWithAnimation(
+      totalItem: 4,
       containerHeight: 70,
       backgroundColor: Colors.white,
       selectedIndex: _currentIndex,

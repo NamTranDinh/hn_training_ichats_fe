@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../theme/app_color.dart';
+import '../../../config/theme/app_color.dart';
 
 class RowText extends StatelessWidget {
   final VoidCallback onTap;
@@ -40,7 +39,7 @@ class RowText extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              title1??'',
+              title1,
               style: title1Style ??
                   const TextStyle(
                       fontFamily: 'Poppins-Bold',

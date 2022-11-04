@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/layout/auth_layouts/signin_layout/body.dart';
 import '../../widgets/layout/auth_layouts/signin_layout/footer.dart';
 import '../../widgets/layout/auth_layouts/signin_layout/header.dart';
-import '../../widgets/theme/app_color.dart';
+import '../../../config/theme/app_color.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);

@@ -14,10 +14,12 @@ class CustomNavBarWithAnimation extends StatelessWidget {
     required this.items,
     required this.onItemSelected,
     this.curve = Curves.linear,
+    required this.totalItem,
   })  : assert(items.length >= 2 && items.length <= 5),
         super(key: key);
 
   final int selectedIndex;
+  final int totalItem;
   final double iconSize;
   final Color? backgroundColor;
   final bool showElevation;
@@ -49,6 +51,7 @@ class CustomNavBarWithAnimation extends StatelessWidget {
           width: double.infinity,
           height: containerHeight,
           padding: const EdgeInsets.symmetric(vertical: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 3),
           child: Row(
             mainAxisAlignment: mainAxisAlignment,
             children: items.map((item) {
@@ -63,6 +66,7 @@ class CustomNavBarWithAnimation extends StatelessWidget {
                   itemCornerRadius: itemCornerRadius,
                   animationDuration: animationDuration,
                   curve: curve,
+                  totalItem: totalItem,
                 ),
               );
             }).toList(),
@@ -81,9 +85,9 @@ class _ItemWidget extends StatelessWidget {
   final double itemCornerRadius;
   final Duration animationDuration;
   final Curve curve;
+  final int totalItem;
 
   const _ItemWidget({
-    Key? key,
     required this.item,
     required this.isSelected,
     required this.backgroundColor,
@@ -91,15 +95,18 @@ class _ItemWidget extends StatelessWidget {
     required this.itemCornerRadius,
     required this.iconSize,
     this.curve = Curves.linear,
-  }) : super(key: key);
+    required this.totalItem,
+  });
 
   @override
   Widget build(BuildContext context) {
+    var widthScreen = MediaQuery.of(context).size.width - (totalItem * 12);
+    var widthAnimActive = widthScreen / totalItem + 30;
     return Semantics(
       container: true,
       selected: isSelected,
       child: AnimatedContainer(
-        width: isSelected ? 120 : 80,
+        width: isSelected ? widthAnimActive : 80,
         height: double.maxFinite,
         duration: animationDuration,
         curve: curve,
@@ -112,7 +119,7 @@ class _ItemWidget extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           physics: const NeverScrollableScrollPhysics(),
           child: Container(
-            width: isSelected ? 120 : 80,
+            width: isSelected ? widthAnimActive : 80,
             padding: const EdgeInsets.symmetric(horizontal: 0),
             child: Row(
               mainAxisSize: MainAxisSize.max,

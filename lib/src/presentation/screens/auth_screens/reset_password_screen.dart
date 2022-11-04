@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/layout/auth_layouts/reset_password_layout/body.dart';
 import '../../widgets/layout/auth_layouts/reset_password_layout/footer.dart';
 import '../../widgets/layout/auth_layouts/reset_password_layout/header.dart';
-import '../../widgets/theme/app_color.dart';
+import '../../../config/theme/app_color.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({Key? key}) : super(key: key);

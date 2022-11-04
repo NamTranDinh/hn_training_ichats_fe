@@ -4,14 +4,13 @@ import 'package:i_chat/src/presentation/widgets/drawable/number_text_field.dart'
 import 'package:i_chat/src/presentation/widgets/drawable/row_text.dart';
 
 import '../../../drawable/button_text.dart';
-import '../../../theme/app_color.dart';
+import '../../../../../config/theme/app_color.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var emailController = TextEditingController();
     return Column(
       children: [
         const SizedBox(height: 56),

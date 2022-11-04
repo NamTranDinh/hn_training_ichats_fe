@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/email_form_field.dart';
 
+import '../../../../../config/theme/app_color.dart';
 import '../../../drawable/button_text.dart';
-import '../../../theme/app_color.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

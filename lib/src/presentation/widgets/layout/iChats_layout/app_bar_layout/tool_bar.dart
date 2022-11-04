@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dart';
-import 'package:i_chat/src/presentation/widgets/theme/app_color.dart';
+
+import '../../../../../config/theme/app_color.dart';
+
 
 class Toolbar extends StatelessWidget with PreferredSizeWidget {
   final String titleToolBar;
