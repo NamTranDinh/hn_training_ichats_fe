@@ -40,7 +40,7 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
           Container(
             decoration: const BoxDecoration(
               color: purple900,
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
+              // borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
             ),
           ),
           Positioned(
