@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/app_bar_layout/tool_bar.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/body_layout/call.dart';
+import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/body_layout/group.dart';
 import 'package:i_chat/src/presentation/widgets/theme/app_color.dart';
 
 import '../../widgets/drawable/custom_nav_bar_with_animation.dart';
@@ -48,6 +49,13 @@ class _IChatsScreenState extends State<IChatsScreen> {
           textAlign: TextAlign.center,
         ),
         BottomNaviBarItem(
+          icon: const Icon(Icons.groups),
+          title: const Text('Group'),
+          activeColor: purple900,
+          inactiveColor: _inactiveColor,
+          textAlign: TextAlign.center,
+        ),
+        BottomNaviBarItem(
           icon: const Icon(Icons.videocam_outlined),
           title: const Text('Call'),
           activeColor: purple900,
@@ -68,6 +76,7 @@ class _IChatsScreenState extends State<IChatsScreen> {
   Widget getBody() {
     List<Widget> pages = [
       const Home(),
+      const Group(),
       const Call(),
       const Setting(),
     ];
@@ -80,6 +89,8 @@ class _IChatsScreenState extends State<IChatsScreen> {
 
 enum GetTitleToolBar {
   iChats,
+  // ignore: constant_identifier_names
+  Group,
   // ignore: constant_identifier_names
   Call,
   // ignore: constant_identifier_names

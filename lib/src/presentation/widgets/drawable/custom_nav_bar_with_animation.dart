@@ -48,7 +48,7 @@ class CustomNavBarWithAnimation extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: containerHeight,
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: Row(
             mainAxisAlignment: mainAxisAlignment,
             children: items.map((item) {
@@ -122,7 +122,7 @@ class _ItemWidget extends StatelessWidget {
                 /// icon
                 IconTheme(
                   data: IconThemeData(
-                    size: isSelected ? (iconSize + 6) : iconSize,
+                    size: isSelected ? (iconSize + 3) : iconSize,
                     color: isSelected
                         ? Colors.white
                         : item.inactiveColor ?? item.activeColor,
