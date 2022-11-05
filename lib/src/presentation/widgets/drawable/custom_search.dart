@@ -12,7 +12,7 @@ class CustomSearch extends StatefulWidget {
   final EdgeInsets? margin;
   final TextStyle? hintStyle;
 
-  CustomSearch({
+  const CustomSearch({
     super.key,
     required this.styleOutLineEmail,
     this.prefixIcon,
@@ -42,7 +42,6 @@ class _CustomSearchState extends State<CustomSearch> {
       onTap: widget.onTap,
       child: Container(
           margin: widget.margin,
-          width: MediaQuery.of(context).size.width * 0.9,
           height: 36,
           padding: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
@@ -56,7 +55,7 @@ class _CustomSearchState extends State<CustomSearch> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                  padding: const EdgeInsets.only(right: 12),
+                  padding: const EdgeInsets.only(right: 12, left: 3),
                   child: Icon(
                     widget.prefixIcon,
                     color: Colors.grey.shade700,

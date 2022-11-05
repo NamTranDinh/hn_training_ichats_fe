@@ -25,6 +25,7 @@ class _IChatsScreenState extends State<IChatsScreen> {
     return Scaffold(
         appBar: Toolbar(
           titleToolBar: GetTitleToolBar.values[_currentIndex].name,
+          titleStyle: const TextStyle(fontFamily: 'Poppins-Medium', fontSize: 22),
           indexCurrent: _currentIndex,
         ),
         body: getBody(),
@@ -58,7 +59,7 @@ class _IChatsScreenState extends State<IChatsScreen> {
         ),
         BottomNaviBarItem(
           icon: const Icon(Icons.videocam_outlined),
-          title: const Text('Call'),
+          title: const Text('Calls'),
           activeColor: purple900,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,

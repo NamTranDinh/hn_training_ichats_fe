@@ -9,9 +9,11 @@ class RouteConst {
 
   // iChats
   static const String iChatsRoutes         = '/iChats/iChatsRoutes';
+  static const String searchRoutes         = '/iChats/home/searchRoutes';
 }
 
 class PathAssetConst {
+  static const String assetsAppIcons = 'assets/AppIcons/';
   static const String assetsImage = 'assets/images/';
   static const String assetsLottieFiles = 'assets/lottie_files/';
 }

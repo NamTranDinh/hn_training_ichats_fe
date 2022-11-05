@@ -8,6 +8,7 @@ import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dar
 import '../presentation/screens/auth_screens/error_screen.dart';
 import '../presentation/screens/auth_screens/otp_screen.dart';
 import '../presentation/screens/auth_screens/sign_up_screen.dart';
+import '../presentation/screens/iChats_screens/search_screen.dart';
 
 class OnGenerateRoute {
   static Route<dynamic> route(RouteSettings routeSettings) {
@@ -41,6 +42,10 @@ class OnGenerateRoute {
       case RouteConst.iChatsRoutes:
         {
           return _toPageRoute(route: const IChatsScreen());
+        }
+      case RouteConst.searchRoutes:
+        {
+          return _toPageRoute(route: const SearchScreen());
         }
       default:
         return _toPageRoute(route: const ErrorScreen());

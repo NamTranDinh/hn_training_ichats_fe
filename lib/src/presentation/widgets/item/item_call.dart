@@ -4,18 +4,21 @@ import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:i_chat/src/config/app_const.dart';
 
-class ItemChat extends StatelessWidget {
+class ItemCall extends StatelessWidget {
+  static const String _inComingCalls = 'Incoming call';
+  static const String _outComingCalls = 'Outgoing call';
+
   final int index;
 
-  const ItemChat({super.key, required this.index});
+  const ItemCall({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.grey.shade200,
       onTap: () {
 
       },
-      splashColor: Colors.grey.shade200,
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 80,
@@ -42,11 +45,11 @@ class ItemChat extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Name user
-                      Text(
-                        'User $index',
+                      const Text(
+                        'Tran Dinh Nam',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 15,
                           color: Colors.black,
                           fontFamily: 'Poppins-Medium',
@@ -54,33 +57,44 @@ class ItemChat extends StatelessWidget {
                       ),
 
                       // msg
-                      const Text(
-                        'Hello.',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.black54,
-                          fontFamily: 'Poppins-Medium',
-                        ),
+                      Row(
+                        children: [
+                          const Icon(Icons.phone_callback_rounded, color: Colors.black54, size: 13,),
+                          const Text(
+                            '\t\t $_inComingCalls',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black54,
+                              fontFamily: 'Poppins-Medium',
+                            ),
+                          ),
+                          Text(
+                              '\t\t-\t\t${getDateFromTimeCurrent(randomTime())}'),
+                        ],
                       ),
                     ],
                   ),
                 )),
-            Expanded(
-              flex: 3,
-              child: SizedBox(
-                width: 20,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // time 1667628613
-                    Text(getDateFromTimeCurrent(randomTime())),
-                  ],
+            SizedBox.fromSize(
+              size: const Size(36, 36),
+              child: ClipOval(
+                child: Material(
+                  color: Colors.grey.shade300,
+                  child: InkWell(
+                    splashColor: Colors.grey.shade100,
+                    onTap: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.call, color: Colors.black87, size: 18,),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -102,7 +116,7 @@ class ItemChat extends StatelessWidget {
     return now.toString();
   }
 
-  int randomTime(){
-    return Random().nextInt(999999)+1000000;
+  int randomTime() {
+    return Random().nextInt(999999) + 1000000;
   }
 }

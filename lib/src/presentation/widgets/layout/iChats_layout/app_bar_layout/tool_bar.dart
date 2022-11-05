@@ -24,6 +24,7 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
       elevation: 0,
       centerTitle: false,
       title: Text(titleToolBar),
+      titleTextStyle: titleStyle,
       leading: Container(
         margin: const EdgeInsets.only(left: 12.0),
         child: CircleAvatar(
@@ -76,7 +77,7 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.more_vert),
+                icon: const Icon(Icons.add),
               ),
             ],
           ),
@@ -90,6 +91,19 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.videocam_rounded),
+              ),
+            ],
+          ),
+        if(indexCurrent == GetTitleToolBar.Group.index)
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.add),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert),
               ),
             ],
           ),
