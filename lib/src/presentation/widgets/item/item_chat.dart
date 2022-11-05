@@ -13,7 +13,7 @@ class ItemChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-
+        Navigator.pushNamed(context, RouteConst.userChatRoutes);
       },
       splashColor: Colors.grey.shade200,
       child: Container(

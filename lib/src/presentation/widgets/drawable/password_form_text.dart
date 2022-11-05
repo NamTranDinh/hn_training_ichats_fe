@@ -87,9 +87,9 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
               });
             },
             child: widget.obscurityText
-                ? Icon(Icons.visibility,
+                ? Icon(Icons.visibility_off,
                     color: widget.borderColor ?? Colors.blue, size: 24)
-                : Icon(Icons.visibility_off,
+                : Icon(Icons.visibility,
                     color: widget.borderColor ?? Colors.blue, size: 24),
           ),
           enabledBorder:

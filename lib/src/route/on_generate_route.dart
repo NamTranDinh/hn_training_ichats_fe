@@ -5,6 +5,7 @@ import 'package:i_chat/src/presentation/screens/auth_screens/reset_password_scre
 import 'package:i_chat/src/presentation/screens/auth_screens/sign_in_screen.dart';
 import 'package:i_chat/src/presentation/screens/auth_screens/welcome_screen.dart';
 import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dart';
+import 'package:i_chat/src/presentation/screens/iChats_screens/user_chat_screen.dart';
 import '../presentation/screens/auth_screens/error_screen.dart';
 import '../presentation/screens/auth_screens/otp_screen.dart';
 import '../presentation/screens/auth_screens/sign_up_screen.dart';
@@ -46,6 +47,10 @@ class OnGenerateRoute {
       case RouteConst.searchRoutes:
         {
           return _toPageRoute(route: const SearchScreen());
+        }
+      case RouteConst.userChatRoutes:
+        {
+          return _toPageRoute(route: const UserChatScreen());
         }
       default:
         return _toPageRoute(route: const ErrorScreen());
