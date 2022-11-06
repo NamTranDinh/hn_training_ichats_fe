@@ -25,7 +25,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,8 +35,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Image.asset(
               'assets/images/playstore.png',
               fit: BoxFit.cover,
-              width: 120.0,
-              height: 120.0,
+              width: 100.0,
+              height: 100.0,
               )
             ),
             Lottie.asset('assets/lottie_files/chat_bot_loading.json',
