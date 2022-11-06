@@ -24,7 +24,6 @@ class Call extends StatelessWidget {
               itemBuilder: (context, index) {
                 return index == 0
                     ? CustomSearch(
-                  styleOutLineEmail: StyleOutLineSearch.outlineInputBorder,
                   backgroundColor: Colors.grey.shade300,
                   prefixIcon: Icons.search,
                   margin: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),

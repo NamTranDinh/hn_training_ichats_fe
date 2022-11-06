@@ -8,13 +8,11 @@ class CustomSearch extends StatefulWidget {
   final Color? backgroundColor;
   final double? borderSize;
   final double? radius;
-  final StyleOutLineSearch styleOutLineEmail;
   final EdgeInsets? margin;
   final TextStyle? hintStyle;
 
   const CustomSearch({
     super.key,
-    required this.styleOutLineEmail,
     this.prefixIcon,
     this.borderColor,
     this.backgroundColor,
@@ -60,31 +58,11 @@ class _CustomSearchState extends State<CustomSearch> {
                     widget.prefixIcon,
                     color: Colors.grey.shade700,
                   )),
-              Text(widget.hintText ?? 'Search something' , style: widget.hintStyle ?? TextStyle(color: Colors.grey.shade700)),
+              Text(widget.hintText ?? 'Search something',
+                  style: widget.hintStyle ??
+                      TextStyle(color: Colors.grey.shade700)),
             ],
           )),
     );
   }
-
-  OutlineInputBorder outLineInputBorder(Color? borderColor) {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(widget.radius ?? 6.0),
-      ),
-      borderSide: BorderSide(
-        width: widget.borderSize ?? 1.0,
-        color: borderColor ?? Colors.blue,
-      ),
-    );
-  }
-
-  UnderlineInputBorder underLineInputBorder() {
-    return UnderlineInputBorder(
-        borderSide: BorderSide(
-      width: widget.borderSize ?? 2,
-      color: widget.borderColor ?? Colors.blue.shade600,
-    ));
-  }
 }
-
-enum StyleOutLineSearch { outlineInputBorder, underlineInputBorder }
