@@ -4,11 +4,13 @@ import 'package:i_chat/src/presentation/screens/auth_screens/forget_password_scr
 import 'package:i_chat/src/presentation/screens/auth_screens/reset_password_screen.dart';
 import 'package:i_chat/src/presentation/screens/auth_screens/sign_in_screen.dart';
 import 'package:i_chat/src/presentation/screens/auth_screens/welcome_screen.dart';
+import 'package:i_chat/src/presentation/screens/iChats_screens/add_member_to_group_screen.dart';
 import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dart';
 import 'package:i_chat/src/presentation/screens/iChats_screens/user_chat_screen.dart';
 import '../presentation/screens/auth_screens/error_screen.dart';
 import '../presentation/screens/auth_screens/otp_screen.dart';
 import '../presentation/screens/auth_screens/sign_up_screen.dart';
+import '../presentation/screens/iChats_screens/create_group_screen.dart';
 import '../presentation/screens/iChats_screens/search_screen.dart';
 
 class OnGenerateRoute {
@@ -51,6 +53,14 @@ class OnGenerateRoute {
       case RouteConst.userChatRoutes:
         {
           return _toPageRoute(route: const UserChatScreen());
+        }
+      case RouteConst.addMemberToGroupRoutes:
+        {
+          return _toPageRoute(route: const AddMemberToGroupScreen());
+        }
+      case RouteConst.createGroupScreen:
+        {
+          return _toPageRoute(route: const CreateGroupScreen());
         }
       default:
         return _toPageRoute(route: const ErrorScreen());

@@ -98,7 +98,9 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
           Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteConst.addMemberToGroupRoutes);
+                },
                 icon: const Icon(Icons.add),
               ),
               IconButton(

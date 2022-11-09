@@ -18,6 +18,12 @@ class _ItemActionChattingState extends State<ItemActionChatting> {
   bool isActionVisible = true;
 
   @override
+  void dispose() {
+    widget.messageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
