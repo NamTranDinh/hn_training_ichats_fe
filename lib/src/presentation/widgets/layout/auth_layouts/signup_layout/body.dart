@@ -11,6 +11,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var userNameController = TextEditingController();
     var emailController = TextEditingController();
     var passController = TextEditingController();
     var rePassController = TextEditingController();
@@ -19,6 +20,20 @@ class Body extends StatelessWidget {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.05,
         ),
+        EmailFormField(
+          controller: userNameController,
+          onChanged: (value) {
+            value = emailController.text;
+          },
+          validator: (value) {},
+          styleOutLineEmail: StyleOutLineEmail.outlineInputBorder,
+          borderColor: purple900,
+          textInputAction: TextInputAction.next,
+          prefixIcon: Icons.person,
+          labelText: 'User name',
+
+        ),
+        const SizedBox(height: 8),
         EmailFormField(
           controller: emailController,
           onChanged: (value) {
