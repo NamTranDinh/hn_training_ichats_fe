@@ -16,7 +16,7 @@ class FireBaseReposImpl implements FirebaseRepos {
       firebaseRemoteDataResources.getCreateCurrentUser(userEntity);
 
   @override
-  Future<void> getCurrentUserId() =>
+  Future<String> getCurrentUserId() =>
       firebaseRemoteDataResources.getCurrentUserId();
 
   @override

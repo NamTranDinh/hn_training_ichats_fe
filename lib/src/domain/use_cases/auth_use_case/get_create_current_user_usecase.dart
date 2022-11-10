@@ -6,7 +6,7 @@ class GetCreateCurrentUserUseCase {
 
   GetCreateCurrentUserUseCase({required this.firebaseRepos});
 
-  Future<void> getCreateCurrentUser(UserEntity userEntity){
+  Future<void> call(UserEntity userEntity){
     return firebaseRepos.getCreateCurrentUser(userEntity);
   }
 }

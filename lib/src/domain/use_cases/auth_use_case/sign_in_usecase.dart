@@ -6,7 +6,7 @@ class SignInUseCase{
 
   SignInUseCase({required this.firebaseRepos});
 
-  Future<void> signIn(UserEntity userEntity){
+  Future<void> call(UserEntity userEntity){
     return firebaseRepos.signIn(userEntity);
   }
 }

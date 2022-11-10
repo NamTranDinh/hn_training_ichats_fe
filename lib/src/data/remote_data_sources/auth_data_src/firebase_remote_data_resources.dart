@@ -12,7 +12,7 @@ abstract class FirebaseRemoteDataResources {
 
   Future<void> getCreateCurrentUser(UserEntity userEntity);
 
-  Future<void> getCurrentUserId();
+  Future<String> getCurrentUserId();
 
   Future<bool> isSignIn();
 

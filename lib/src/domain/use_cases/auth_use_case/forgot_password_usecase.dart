@@ -5,7 +5,7 @@ class ForgotPasswordUseCase{
 
   ForgotPasswordUseCase({required this.firebaseRepos});
 
-  Future<void> forgotPassword(String email){
+  Future<void> call(String email){
     return firebaseRepos.forgotPassword(email);
   }
 }
