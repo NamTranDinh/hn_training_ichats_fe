@@ -31,6 +31,10 @@ dependencies:
   meta: ^1.8.0
   # get_it: ?
   get_it: ^7.2.0
+  # provider:
+  provider: ^6.0.4
+  # kiwi:
+  kiwi: ^4.0.3
   # cached_network_image:
   cached_network_image: ^3.2.2
   # flutterToast:

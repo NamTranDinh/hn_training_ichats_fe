@@ -6,7 +6,7 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text(
-      'Made with ♥ by iChats developer',
+      'Made with ♥ by i\'naM developer',
       style: TextStyle(fontFamily: 'Poppins-Medium', fontSize: 10),);
   }
 }

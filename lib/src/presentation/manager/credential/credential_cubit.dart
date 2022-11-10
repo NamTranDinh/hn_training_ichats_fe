@@ -37,7 +37,7 @@ class CredentialCubit extends Cubit<CredentialState> {
   }
 
   ///
-  Future<void> submitSignUn({required UserEntity userEntity}) async {
+  Future<void> submitSignUp({required UserEntity userEntity}) async {
     try {
       await signUpUseCase.call(userEntity);
       await getCreateCurrentUserUseCase.call(userEntity);
