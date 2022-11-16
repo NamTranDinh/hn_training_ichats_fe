@@ -77,6 +77,16 @@ Future<void> init() async {
         emailAuth: instance.call(),
       ));
 
+  /// register object use case of otp
+  // final SentOtpUseCase;
+  // final VerifyOtpUseCase;
+  instance.registerLazySingleton<SentOtpUseCase>(() => SentOtpUseCase(
+        emailAuth: instance.call(),
+      ));
+  instance.registerLazySingleton<VerifyOtpUseCase>(() => VerifyOtpUseCase(
+        emailAuth: instance.call(),
+      ));
+
   /// register object repository of domain
   instance.registerLazySingleton<FirebaseAuthRepo>(() => FirebaseAuthImpl(
         firebaseRemoteDataSrc: instance.call(),
