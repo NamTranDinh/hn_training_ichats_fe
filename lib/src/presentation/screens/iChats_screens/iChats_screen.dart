@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:i_chat/src/presentation/cubiT/auth/auth_cubit.dart';
+import 'package:i_chat/src/presentation/cubiT/credential/credential_cubit.dart';
+import 'package:i_chat/src/presentation/screens/auth_screens/sign_in_screen.dart';
+import 'package:i_chat/src/presentation/screens/auth_screens/welcome_screen.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/app_bar_layout/tool_bar.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/body_layout/call.dart';
 import 'package:i_chat/src/presentation/widgets/layout/iChats_layout/body_layout/group.dart';
+import 'package:i_chat/toast_utils.dart';
 import '../../../config/theme/app_color.dart';
 
 import '../../widgets/drawable/custom_nav_bar_with_animation.dart';
@@ -9,7 +15,9 @@ import '../../widgets/layout/iChats_layout/body_layout/home.dart';
 import '../../widgets/layout/iChats_layout/body_layout/setting.dart';
 
 class IChatsScreen extends StatefulWidget {
-  const IChatsScreen({Key? key}) : super(key: key);
+  final String? userId;
+
+  const IChatsScreen({Key? key, this.userId}) : super(key: key);
 
   @override
   State<IChatsScreen> createState() => _IChatsScreenState();
@@ -21,11 +29,51 @@ class _IChatsScreenState extends State<IChatsScreen> {
   final _inactiveColor = const Color.fromRGBO(186, 184, 194, 1);
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    return BlocConsumer<CredentialCubit, CredentialState>(
+      listener: (context, credentialState) {
+        /// here the listener state will be emitted from the `CredentialCubit` vio `emit`
+        if (credentialState is CredentialSuccess) {
+          BlocProvider.of<AuthCubit>(context).signedOut();
+          ToastUtils.showToast('CredentialSuccess sign out');
+        }
+        if (credentialState is CredentialFailure) {
+          ToastUtils.showToast('CredentialFailure sign out');
+        }
+      },
+      builder: (context, credentialState) {
+        if (credentialState is CredentialLoading) {
+          return const WelcomeScreen();
+        }
+        if (credentialState is CredentialSuccess) {
+          return BlocBuilder<AuthCubit, AuthState>(
+            builder: (context, authState) {
+              if (authState is SignInScreen) {
+                return const SignInScreen();
+              } else {
+                return _container();
+              }
+            },
+          );
+        }
+        if (credentialState is CredentialFailure) {}
+
+        return _container();
+      },
+    );
+  }
+
+  Widget _container() {
     return Scaffold(
         appBar: Toolbar(
           titleToolBar: GetTitleToolBar.values[_currentIndex].name,
-          titleStyle: const TextStyle(fontFamily: 'Poppins-Medium', fontSize: 22),
+          titleStyle:
+              const TextStyle(fontFamily: 'Poppins-Medium', fontSize: 22),
           indexCurrent: _currentIndex,
         ),
         body: getBody(),

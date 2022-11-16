@@ -1,81 +1,83 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
-import 'package:i_chat/src/data/remote_data_sources/firebase_remote_data_resource_impl.dart';
-import 'package:i_chat/src/data/repositories/auth_repos/firebase_repos_impl.dart';
-import 'package:i_chat/src/domain/repositories/auth_repos/firebase_repos.dart';
-import 'package:i_chat/src/domain/use_cases/auth_use_case/forgot_password_usecase.dart';
-import 'package:i_chat/src/domain/use_cases/auth_use_case/get_Current_user_id_usecase.dart';
-import 'package:i_chat/src/domain/use_cases/auth_use_case/get_create_current_user_usecase.dart';
-import 'package:i_chat/src/domain/use_cases/auth_use_case/is_sign_in_usecase.dart';
-import 'package:i_chat/src/domain/use_cases/auth_use_case/sign_in_usecase.dart';
-import 'package:i_chat/src/domain/use_cases/auth_use_case/sign_out_usecase.dart';
-import 'package:i_chat/src/domain/use_cases/auth_use_case/sign_up_usecase.dart';
-import 'package:i_chat/src/presentation/manager/auth/auth_cubit.dart';
-import 'package:i_chat/src/presentation/manager/credential/credential_cubit.dart';
+import 'package:i_chat/src/data/remote_data_sources/auth_data_src/firebase_remote_data_src.dart';
+import 'package:i_chat/src/data/remote_data_sources/firebase_remote_data_impl.dart';
+import 'package:i_chat/src/data/repositories/firebase_auth_impl.dart';
+import 'package:i_chat/src/domain/repositories/firebase_auth_repo.dart';
+import 'package:i_chat/src/domain/use_cases/auth_usecase/get_id_user_current_usecase.dart';
+import 'package:i_chat/src/domain/use_cases/auth_usecase/is_signedin_usecase.dart';
+import 'package:i_chat/src/domain/use_cases/auth_usecase/save_info_current_user.dart';
+import 'package:i_chat/src/domain/use_cases/auth_usecase/signin_usecase.dart';
+import 'package:i_chat/src/domain/use_cases/auth_usecase/signout_usecase.dart';
+import 'package:i_chat/src/presentation/cubiT/auth/auth_cubit.dart';
+import 'package:i_chat/src/presentation/cubiT/credential/credential_cubit.dart';
+
+import '../src/domain/use_cases/auth_usecase/signup_usecase.dart';
 
 final instance = GetIt.instance;
 
 Future<void> init() async {
-  /// bloc/cubit
-  instance.registerFactory(
-    () => AuthCubit(
-      isSignInUseCase: instance.call(),
-      signOutUseCase: instance.call(),
-      getCurrentUserIdUseCase: instance.call(),
-    ),
-  );
+  /// register object cubit
+  instance.registerFactory<AuthCubit>(() => AuthCubit(
+        signOutUseCase: instance.call(),
+        isSignedInUseCase: instance.call(),
+        getIdUserCurrentUseCase: instance.call(),
+      ));
 
-  instance.registerFactory(
-    () => CredentialCubit(
+  instance.registerFactory<CredentialCubit>(() => CredentialCubit(
         signInUseCase: instance.call(),
         signUpUseCase: instance.call(),
-        forgotPasswordUseCase: instance.call(),
-        getCreateCurrentUserUseCase: instance.call()),
-  );
+        saveInfoCurrentUserUseCase: instance.call(),
+        signOutUseCase: instance.call(),
+      ));
 
-  /// use case
-  // auth cubit use case
-  instance.registerLazySingleton<GetCurrentUserIdUseCase>(
-    () => GetCurrentUserIdUseCase(firebaseRepos: instance.call()),
-  );
-  instance.registerLazySingleton<IsSignInUseCase>(
-    () => IsSignInUseCase(firebaseRepos: instance.call()),
-  );
-  instance.registerLazySingleton<SignOutUseCase>(
-    () => SignOutUseCase(firebaseRepos: instance.call()),
-  );
-  // credential cubit use case
-  instance.registerLazySingleton<SignUpUseCase>(
-    () => SignUpUseCase(firebaseRepos: instance.call()),
-  );
-  instance.registerLazySingleton<SignInUseCase>(
-    () => SignInUseCase(firebaseRepos: instance.call()),
-  );
-  instance.registerLazySingleton<ForgotPasswordUseCase>(
-    () => ForgotPasswordUseCase(firebaseRepos: instance.call()),
-  );
-  instance.registerLazySingleton<GetCreateCurrentUserUseCase>(
-    () => GetCreateCurrentUserUseCase(firebaseRepos: instance.call()),
-  );
+  /// register object use case of auth
+  //  final SignOutUseCase;
+  //  final IsSignedInUseCase;
+  //  final GetIdUserCurrentUseCase;
+  instance.registerLazySingleton<SignOutUseCase>(() => SignOutUseCase(
+        firebaseAuthRepo: instance.call(),
+      ));
+  instance.registerLazySingleton<IsSignedInUseCase>(() => IsSignedInUseCase(
+        firebaseAuthRepo: instance.call(),
+      ));
+  instance.registerLazySingleton<GetIdUserCurrentUseCase>(
+      () => GetIdUserCurrentUseCase(
+            firebaseAuthRepo: instance.call(),
+          ));
 
-  /// repo
-  instance.registerLazySingleton<FirebaseRepos>(
-    () => FireBaseReposImpl(firebaseRemoteDataResources: instance.call()),
-  );
+  /// register object use case of credential
+  //  final SignInUseCase;
+  //  final SignUpUseCase;
+  //  final SaveInfoCurrentUserUseCase;
+  instance.registerLazySingleton<SignInUseCase>(() => SignInUseCase(
+        firebaseAuthRepo: instance.call(),
+      ));
+  instance.registerLazySingleton<SignUpUseCase>(() => SignUpUseCase(
+        firebaseAuthRepo: instance.call(),
+      ));
+  instance.registerLazySingleton<SaveInfoCurrentUserUseCase>(
+      () => SaveInfoCurrentUserUseCase(
+            firebaseAuthRepo: instance.call(),
+          ));
 
-  /// remote data src
-  instance.registerLazySingleton<FirebaseRemoteDataResourceImpl>(
-    () => FirebaseRemoteDataResourceImpl(
-        firebaseFireStore: instance.call(), firebaseAuth: instance.call()),
-  );
+  /// register object repository of domain
+  instance.registerLazySingleton<FirebaseAuthRepo>(() => FirebaseAuthImpl(
+        firebaseRemoteDataSrc: instance.call(),
+      ));
 
-  /// local data src
+  /// register object repository of data
+  instance.registerLazySingleton<FirebaseRemoteDataSrc>(
+      () => FirebaseRemoteDataImpl(
+            firebaseAuth: instance.call(),
+            fireStore: instance.call(),
+          ));
 
-  /// external
-  final authInstance = FirebaseAuth.instance;
-  final fireStoreInstance = FirebaseFirestore.instance;
+  /// external ??
+  final auth = FirebaseAuth.instance;
+  final fireStore = FirebaseFirestore.instance;
 
-  instance.registerLazySingleton(() => authInstance);
-  instance.registerLazySingleton(() => fireStoreInstance);
+  instance.registerSingleton(auth);
+  instance.registerSingleton(fireStore);
 }

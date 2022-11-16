@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_chat/src/config/theme/app_color.dart';
+import 'package:i_chat/src/presentation/cubiT/auth/auth_cubit.dart';
 import 'package:i_chat/src/presentation/screens/auth_screens/sign_in_screen.dart';
+import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/row_text.dart';
 import 'package:lottie/lottie.dart';
-
 import '../../widgets/layout/auth_layouts/signin_layout/footer.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -20,9 +22,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   void initState() {
     super.initState();
     Timer(
-        const Duration(milliseconds: 5000),
-            () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const SignInScreen())));
+      const Duration(milliseconds: 1000),
+      () => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => BlocBuilder<AuthCubit, AuthState>(
+              builder: (context, authState) {
+                if (authState is Authenticated) {
+                  return const IChatsScreen();
+                } else {
+                  return const SignInScreen();
+                }
+              },
+            ),
+          )),
+    );
   }
 
   @override
@@ -59,15 +73,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               right: 0,
               child: Column(
                 children: [
-                  const Text('From', style: TextStyle(fontFamily: 'Poppins-bold', color: purple900, fontSize: 12),),
+                  const Text(
+                    'From',
+                    style: TextStyle(
+                        fontFamily: 'Poppins-bold',
+                        color: purple900,
+                        fontSize: 12),
+                  ),
                   RowText(
                     onTap: () {},
                     title1: 'i\'naM',
                     title1Style: const TextStyle(
-                      fontFamily: 'Poppins-bold',
-                      color: purple900,
-                      fontSize: 16
-                    ),
+                        fontFamily: 'Poppins-bold',
+                        color: purple900,
+                        fontSize: 16),
                   ),
                 ],
               ),

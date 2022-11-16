@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:i_chat/dialog_utils.dart';
 import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dart';
 
 import '../../../../../config/theme/app_color.dart';
+import '../../../../cubiT/credential/credential_cubit.dart';
 
-
-class Toolbar extends StatelessWidget with PreferredSizeWidget {
+class Toolbar extends StatefulWidget with PreferredSizeWidget {
   final String titleToolBar;
   final TextStyle? titleStyle;
   final int indexCurrent;
@@ -19,12 +21,24 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
   });
 
   @override
+  State<Toolbar> createState() => _ToolbarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(60);
+}
+
+class _ToolbarState extends State<Toolbar> {
+  @override
   Widget build(BuildContext context) {
+    return _container();
+  }
+
+  Widget _container() {
     return AppBar(
       elevation: 0,
       centerTitle: false,
-      title: Text(titleToolBar),
-      titleTextStyle: titleStyle,
+      title: Text(widget.titleToolBar),
+      titleTextStyle: widget.titleStyle,
       leading: Container(
         margin: const EdgeInsets.only(left: 12.0),
         child: CircleAvatar(
@@ -68,7 +82,7 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
       ),
       automaticallyImplyLeading: false,
       actions: [
-        if(indexCurrent == GetTitleToolBar.iChats.index)
+        if (widget.indexCurrent == GetTitleToolBar.iChats.index)
           Row(
             children: [
               IconButton(
@@ -81,7 +95,7 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
               ),
             ],
           ),
-        if(indexCurrent == GetTitleToolBar.Call.index)
+        if (widget.indexCurrent == GetTitleToolBar.Call.index)
           Row(
             children: [
               IconButton(
@@ -94,12 +108,13 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
               ),
             ],
           ),
-        if(indexCurrent == GetTitleToolBar.Group.index)
+        if (widget.indexCurrent == GetTitleToolBar.Group.index)
           Row(
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RouteConst.addMemberToGroupRoutes);
+                  Navigator.pushNamed(
+                      context, RouteConst.addMemberToGroupRoutes);
                 },
                 icon: const Icon(Icons.add),
               ),
@@ -109,16 +124,26 @@ class Toolbar extends StatelessWidget with PreferredSizeWidget {
               ),
             ],
           ),
-        if(indexCurrent == GetTitleToolBar.Setting.index)
+        if (widget.indexCurrent == GetTitleToolBar.Setting.index)
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert),
+            onPressed: () => _onPressSignOut(context),
+            icon: const Icon(Icons.logout),
           )
       ],
     );
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(60);
-
+  void _onPressSignOut(BuildContext context) {
+    DialogUtils.showDialogConfirm(
+      context: context,
+      title: 'Are you sure want to log out?',
+      onCancel: () {
+        Navigator.of(context).pop();
+      },
+      onConfirm: () {
+        BlocProvider.of<CredentialCubit>(context).onSubmitSignOut();
+        Navigator.of(context).pop();
+      },
+    );
+  }
 }

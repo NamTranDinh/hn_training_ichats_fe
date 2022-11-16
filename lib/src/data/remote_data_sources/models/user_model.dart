@@ -7,17 +7,11 @@ class UserModel extends UserEntity {
     final String? userName,
     final String? email,
     final String? password,
-    final String? avatarUrl,
-    final bool? isOnline,
-    final String? status,
   }) : super(
           userId: userId,
           userName: userName,
           email: email,
           password: password,
-          avatarUrl: avatarUrl,
-          isOnline: isOnline,
-          status: status,
         );
 
   factory UserModel.fromSnapshot(DocumentSnapshot snapshot) {
@@ -26,9 +20,6 @@ class UserModel extends UserEntity {
       userName: snapshot.get('userName'),
       email: snapshot.get('email'),
       password: snapshot.get('password'),
-      avatarUrl: snapshot.get('avatarUrl'),
-      isOnline: snapshot.get('isOnline'),
-      status: snapshot.get('status'),
     );
   }
 
@@ -38,9 +29,6 @@ class UserModel extends UserEntity {
       'userName': userName,
       'email': email,
       'password': password,
-      'avatarUrl': avatarUrl,
-      'isOnline': isOnline,
-      'status': status,
     };
   }
 }

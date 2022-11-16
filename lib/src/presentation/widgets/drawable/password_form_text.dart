@@ -61,7 +61,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
         validator: widget.validator,
         autovalidateMode: widget.autoValidateMode ?? AutovalidateMode.disabled,
         maxLines: 1,
-        maxLength: 20,
+        // maxLength: 20,
         textInputAction: widget.textInputAction,
         obscureText: widget.obscurityText,
         onChanged: widget.onChanged,
@@ -69,7 +69,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
         focusNode: widget.focusNote,
         onFieldSubmitted: (_) => widget.nextFocusNote?.requestFocus(),
         keyboardType: TextInputType.emailAddress,
-        cursorColor: widget.borderColor??Colors.blue,
+        cursorColor: widget.borderColor ?? Colors.blue,
         cursorHeight: 24,
         decoration: InputDecoration(
           filled: true,
@@ -92,6 +92,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
                 : Icon(Icons.visibility,
                     color: widget.borderColor ?? Colors.blue, size: 24),
           ),
+          errorStyle: const TextStyle(color: Colors.red),
           enabledBorder:
               (widget.styleOutLinePass == StyleOutLinePass.outlineInputBorder)
                   ? outLineInputBorder(widget.borderColor)
@@ -99,6 +100,14 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
           focusedBorder:
               (widget.styleOutLinePass == StyleOutLinePass.outlineInputBorder)
                   ? outLineInputBorder(widget.borderColor)
+                  : underLineInputBorder(),
+          errorBorder:
+              (widget.styleOutLinePass == StyleOutLinePass.outlineInputBorder)
+                  ? outLineInputBorder(Colors.red)
+                  : underLineInputBorder(),
+          focusedErrorBorder:
+              (widget.styleOutLinePass == StyleOutLinePass.outlineInputBorder)
+                  ? outLineInputBorder(Colors.red)
                   : underLineInputBorder(),
         ),
       ),

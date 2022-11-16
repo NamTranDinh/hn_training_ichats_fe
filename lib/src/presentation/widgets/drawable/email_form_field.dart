@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class EmailFormField extends StatefulWidget {
   late TextEditingController controller;
   final ValueChanged<String> onChanged;
@@ -96,6 +97,7 @@ class _EmailFormFieldState extends State<EmailFormField> {
                 Icons.close,
                 color: widget.borderColor ?? Colors.blue,
               )),
+          errorStyle: const TextStyle(color: Colors.red),
           enabledBorder:
               (widget.styleOutLineEmail == StyleOutLineEmail.outlineInputBorder)
                   ? outLineInputBorder(widget.borderColor)
@@ -103,6 +105,10 @@ class _EmailFormFieldState extends State<EmailFormField> {
           focusedBorder:
               (widget.styleOutLineEmail == StyleOutLineEmail.outlineInputBorder)
                   ? outLineInputBorder(widget.borderColor)
+                  : underLineInputBorder(),
+          errorBorder:
+              (widget.styleOutLineEmail == StyleOutLineEmail.outlineInputBorder)
+                  ? outLineInputBorder(Colors.red)
                   : underLineInputBorder(),
           focusedErrorBorder:
               (widget.styleOutLineEmail == StyleOutLineEmail.outlineInputBorder)
