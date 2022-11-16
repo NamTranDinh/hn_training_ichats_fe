@@ -36,7 +36,14 @@ class OnGenerateRoute {
         }
       case RouteConst.getOtpRoute:
         {
-          return _toPageRoute(route: const OtpScreen());
+          if (args is String) {
+            return _toPageRoute(route: OtpScreen(email: args));
+          } else {
+            return _toPageRoute(
+                route: const ErrorScreen(
+              msg: 'Sent otp failure!!',
+            ));
+          }
         }
       case RouteConst.resetPasswordRoute:
         {
@@ -63,7 +70,7 @@ class OnGenerateRoute {
           return _toPageRoute(route: const CreateGroupScreen());
         }
       default:
-        return _toPageRoute(route: const ErrorScreen());
+        return _toPageRoute(route: const ErrorScreen(msg: 'Wrong page!'));
     }
   }
 }

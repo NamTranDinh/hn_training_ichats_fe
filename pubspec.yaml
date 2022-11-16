@@ -49,8 +49,13 @@ dependencies:
   flutter_svg: ^1.1.6
   # date_format:
   date_format: ^2.0.7
+  # flutter_keyboard_visibility
   flutter_keyboard_visibility: ^5.4.0
+  # snapshot
   snapshot: ^0.2.5
+  # email_auth
+  email_auth: ^1.0.0
+  get: ^4.6.5
 
 
 

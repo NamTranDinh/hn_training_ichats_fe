@@ -11,7 +11,6 @@ class FirebaseRemoteDataImpl implements FirebaseRemoteDataSrc {
 
   FirebaseRemoteDataImpl({required this.fireStore, required this.firebaseAuth});
 
-
   @override
   Future<void> signInWithAuth(UserEntity userEntity) async {
     await firebaseAuth.signInWithEmailAndPassword(

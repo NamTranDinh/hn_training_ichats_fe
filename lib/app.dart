@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_chat/injections/injection_container.dart';
 import 'package:i_chat/src/presentation/cubiT/auth/auth_cubit.dart';
 import 'package:i_chat/src/presentation/cubiT/credential/credential_cubit.dart';
+import 'package:i_chat/src/presentation/cubiT/otp/otp_cubit.dart';
 
 import 'src/config/app_const.dart';
 import 'src/route/on_generate_route.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthCubit>(create: (_) => instance<AuthCubit>()..initApp()),
         BlocProvider<CredentialCubit>(create: (_) => instance<CredentialCubit>()),
+        BlocProvider<OtpCubit>(create: (_) => instance<OtpCubit>()),
       ],
       child: MaterialApp(
         title: 'IChats',

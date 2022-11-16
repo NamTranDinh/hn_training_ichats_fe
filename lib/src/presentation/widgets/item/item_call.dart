@@ -16,9 +16,7 @@ class ItemCall extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Colors.grey.shade200,
-      onTap: () {
-
-      },
+      onTap: () {},
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 80,
@@ -32,8 +30,8 @@ class ItemCall extends StatelessWidget {
               width: 52,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
-                child:
-                    Image.asset('${PathAssetConst.assetsAppIcons}playstore.png'),
+                child: Image.asset(
+                    '${PathAssetConst.assetsAppIcons}playstore.png'),
               ),
             ),
             Expanded(
@@ -59,7 +57,11 @@ class ItemCall extends StatelessWidget {
                       // msg
                       Row(
                         children: [
-                          const Icon(Icons.phone_callback_rounded, color: Colors.black54, size: 13,),
+                          const Icon(
+                            Icons.phone_callback_rounded,
+                            color: Colors.black54,
+                            size: 13,
+                          ),
                           const Text(
                             '\t\t $_inComingCalls',
                             maxLines: 1,
@@ -85,11 +87,10 @@ class ItemCall extends StatelessWidget {
                   child: InkWell(
                     splashColor: Colors.grey.shade100,
                     onTap: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.call, color: Colors.black87, size: 18,),
-                      ],
+                    child: const Icon(
+                      Icons.call,
+                      color: Colors.black87,
+                      size: 18,
                     ),
                   ),
                 ),

@@ -37,10 +37,10 @@ class _NumberTextFieldState extends State<NumberTextField> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 60,
+      width: 40,
       height: 60,
       padding: const EdgeInsets.all(0),
-      margin: const EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(6.0),
       child: TextFormField(
         controller: widget.controller,
         maxLength: 1,
@@ -64,19 +64,19 @@ class _NumberTextFieldState extends State<NumberTextField> {
           enabledBorder:
               (widget.styleOutLineOtp == StyleOutLineOTP.outlineInputBorder)
                   ? outLineInputBorder(widget.borderColor)
-                  : underLineInputBorder(),
+                  : underLineInputBorder(widget.borderColor),
           focusedBorder:
               (widget.styleOutLineOtp == StyleOutLineOTP.outlineInputBorder)
                   ? outLineInputBorder(widget.borderColor)
-                  : underLineInputBorder(),
+                  : underLineInputBorder(widget.borderColor),
           errorBorder:
               (widget.styleOutLineOtp == StyleOutLineOTP.outlineInputBorder)
                   ? outLineInputBorder(Colors.red)
-                  : underLineInputBorder(),
+                  : underLineInputBorder(Colors.red),
           focusedErrorBorder:
               (widget.styleOutLineOtp == StyleOutLineOTP.outlineInputBorder)
                   ? outLineInputBorder(Colors.red)
-                  : underLineInputBorder(),
+                  : underLineInputBorder(Colors.red),
         ),
       ),
     );
@@ -94,11 +94,11 @@ class _NumberTextFieldState extends State<NumberTextField> {
     );
   }
 
-  UnderlineInputBorder underLineInputBorder() {
+  UnderlineInputBorder underLineInputBorder(Color? borderColor) {
     return UnderlineInputBorder(
         borderSide: BorderSide(
       width: widget.borderSize ?? 3,
-      color: widget.borderColor ?? Colors.blue.shade600,
+      color: borderColor ?? Colors.transparent,
     ));
   }
 }

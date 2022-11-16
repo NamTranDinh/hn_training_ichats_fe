@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/config/theme/app_color.dart';
 import 'package:i_chat/src/config/validator/validators.dart';
@@ -107,7 +109,9 @@ class _BodyState extends State<Body> {
           ),
           const SizedBox(height: 12),
           ButtonText(
-            onPressed: _onSubmitSignIn,
+            onPressed: () {
+              _onSubmitSignIn();
+            },
             // Navigator.pushNamed(context, RouteConst.iChatsRoutes);
             height: 46,
             backgroundColor: purple700,

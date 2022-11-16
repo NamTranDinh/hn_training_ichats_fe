@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/config/validator/validators.dart';
+import 'package:i_chat/src/presentation/cubiT/otp/otp_cubit.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/email_form_field.dart';
+import 'package:i_chat/toast_utils.dart';
 
 import '../../../../../config/theme/app_color.dart';
 import '../../../drawable/button_text.dart';
 
 class Body extends StatefulWidget {
-  const Body({Key? key}) : super(key: key);
+  var emailController = TextEditingController();
+
+  Body({Key? key, required this.emailController}) : super(key: key);
 
   @override
   State<Body> createState() => _BodyState();
@@ -16,31 +21,30 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   final formKey = GlobalKey<FormState>();
 
-  var emailController = TextEditingController();
-
   @override
   void dispose() {
-    emailController.dispose();
     super.dispose();
+  }
+
+  void onSubmitRecoverPassword() {
+    // ToastUtils.showToast(widget.emailController.text);
+    if (formKey.currentState!.validate()) {
+      BlocProvider.of<OtpCubit>(context)
+          .onSubmitSentOtp(widget.emailController.text.trim());
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    void onSubmitRecoverPassword() {
-      if (formKey.currentState!.validate()) {
-        Navigator.pushNamed(context, RouteConst.getOtpRoute);
-      }
-    }
-
     return Form(
       key: formKey,
       child: Column(
         children: [
           const SizedBox(height: 56),
           EmailFormField(
-            controller: emailController,
+            controller: widget.emailController,
             onChanged: (value) {
-              value = emailController.text;
+              value = widget.emailController.text;
             },
             validator: (value) {
               if (value == null ||

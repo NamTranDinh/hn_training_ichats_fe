@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_auth/email_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:i_chat/src/data/remote_data_sources/auth_data_src/firebase_remote_data_src.dart';
@@ -10,8 +11,11 @@ import 'package:i_chat/src/domain/use_cases/auth_usecase/is_signedin_usecase.dar
 import 'package:i_chat/src/domain/use_cases/auth_usecase/save_info_current_user.dart';
 import 'package:i_chat/src/domain/use_cases/auth_usecase/signin_usecase.dart';
 import 'package:i_chat/src/domain/use_cases/auth_usecase/signout_usecase.dart';
+import 'package:i_chat/src/domain/use_cases/otp_usecase/sent_otp_usecase.dart';
+import 'package:i_chat/src/domain/use_cases/otp_usecase/verify_otp_usecase.dart';
 import 'package:i_chat/src/presentation/cubiT/auth/auth_cubit.dart';
 import 'package:i_chat/src/presentation/cubiT/credential/credential_cubit.dart';
+import 'package:i_chat/src/presentation/cubiT/otp/otp_cubit.dart';
 
 import '../src/domain/use_cases/auth_usecase/signup_usecase.dart';
 
@@ -30,6 +34,11 @@ Future<void> init() async {
         signUpUseCase: instance.call(),
         saveInfoCurrentUserUseCase: instance.call(),
         signOutUseCase: instance.call(),
+      ));
+
+  instance.registerFactory<OtpCubit>(() => OtpCubit(
+        verifyOtpUseCase: instance.call(),
+        sentOtpUseCase: instance.call(),
       ));
 
   /// register object use case of auth
@@ -51,9 +60,7 @@ Future<void> init() async {
   //  final SignInUseCase;
   //  final SignUpUseCase;
   //  final SaveInfoCurrentUserUseCase;
-  instance.registerLazySingleton<SignInUseCase>(() => SignInUseCase(
-        firebaseAuthRepo: instance.call(),
-      ));
+  instance.registerLazySingleton<SignInUseCase>(() => SignInUseCase());
   instance.registerLazySingleton<SignUpUseCase>(() => SignUpUseCase(
         firebaseAuthRepo: instance.call(),
       ));
@@ -61,6 +68,16 @@ Future<void> init() async {
       () => SaveInfoCurrentUserUseCase(
             firebaseAuthRepo: instance.call(),
           ));
+
+  /// register object use case of otp
+  // final SentOtpUseCase;
+  // final VerifyOtpUseCase;
+  instance.registerLazySingleton<SentOtpUseCase>(() => SentOtpUseCase(
+        emailAuth: instance.call(),
+      ));
+  instance.registerLazySingleton<VerifyOtpUseCase>(() => VerifyOtpUseCase(
+        emailAuth: instance.call(),
+      ));
 
   /// register object repository of domain
   instance.registerLazySingleton<FirebaseAuthRepo>(() => FirebaseAuthImpl(
@@ -77,7 +94,9 @@ Future<void> init() async {
   /// external ??
   final auth = FirebaseAuth.instance;
   final fireStore = FirebaseFirestore.instance;
+  final emailAuth = EmailAuth(sessionName: 'Ichats');
 
   instance.registerSingleton(auth);
   instance.registerSingleton(fireStore);
+  instance.registerSingleton(emailAuth);
 }
