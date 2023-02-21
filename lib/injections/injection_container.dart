@@ -65,9 +65,7 @@ Future<void> init() async {
         firebaseAuthRepo: instance.call(),
       ));
   instance.registerLazySingleton<SaveInfoCurrentUserUseCase>(
-      () => SaveInfoCurrentUserUseCase(
-            firebaseAuthRepo: instance.call(),
-          ));
+      () => SaveInfoCurrentUserUseCase(firebaseAuthRepo: instance.call()));
 
   /// register object use case of otp
   // final SentOtpUseCase;
