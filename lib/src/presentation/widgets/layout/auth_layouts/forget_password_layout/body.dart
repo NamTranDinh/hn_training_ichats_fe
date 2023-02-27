@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/config/validator/validators.dart';
 import 'package:i_chat/src/presentation/cubiT/otp/otp_cubit.dart';
 import 'package:i_chat/src/presentation/widgets/drawable/email_form_field.dart';
-import 'package:i_chat/toast_utils.dart';
 
 import '../../../../../config/theme/app_color.dart';
 import '../../../drawable/button_text.dart';
@@ -27,7 +25,6 @@ class _BodyState extends State<Body> {
   }
 
   void onSubmitRecoverPassword() {
-    // ToastUtils.showToast(widget.emailController.text);
     if (formKey.currentState!.validate()) {
       BlocProvider.of<OtpCubit>(context)
           .onSubmitSentOtp(widget.emailController.text.trim());
@@ -73,7 +70,10 @@ class _BodyState extends State<Body> {
           ),
           GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, RouteConst.signInRoute);
+                Navigator.popUntil(
+                  context,
+                  (route) => route.isFirst,
+                );
               },
               child: const Text(
                 'or log in instead',

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:i_chat/src/config/app_const.dart';
 import 'package:i_chat/src/config/theme/app_color.dart';
 import 'package:i_chat/src/config/validator/validators.dart';
 import 'package:i_chat/src/domain/entities/user_entity.dart';
@@ -151,7 +150,10 @@ class _BodyState extends State<Body> {
           ),
           GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, RouteConst.signInRoute);
+                Navigator.popUntil(
+                  context,
+                  (route) => route.isFirst,
+                );
               },
               child: const Text(
                 'or log in instead',

@@ -1,7 +1,7 @@
 class RouteConst {
   /// auth
-  static const String welcomeRoute = '/auth/welcomeRoute';
-  static const String signInRoute = '/auth/signInRoute';
+  static const String signInRoute = '/';
+  static const String welcomeRoute = '/welcomeRoute';
   static const String signupRoute = '/auth/signupRoute';
   static const String forgotPassRoute = '/auth/forgotPassRoute';
   static const String getOtpRoute = '/auth/getOtpRoute';
@@ -16,7 +16,8 @@ class RouteConst {
   static const String groupChatRoutes = '/iChats/home/groupChatRoutes';
 
   // group
-  static const String addMemberToGroupRoutes = '/iChats/group/addMemberToGroupRoutes';
+  static const String addMemberToGroupRoutes =
+      '/iChats/group/addMemberToGroupRoutes';
   static const String createGroupScreen = '/iChats/group/createGroupScreen';
 }
 

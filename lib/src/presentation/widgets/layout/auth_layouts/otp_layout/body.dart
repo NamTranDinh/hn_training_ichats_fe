@@ -41,7 +41,6 @@ class _BodyState extends State<Body> {
   }
 
   void onSubmitVerify() {
-    print('xxx ${widget.email}');
     if (formKey.currentState!.validate()) {
       final String otp =
           '${code1stController.text}${code2ndController.text}${code3rdController.text}${code4thController.text}${code5rdController.text}${code6thController.text}';

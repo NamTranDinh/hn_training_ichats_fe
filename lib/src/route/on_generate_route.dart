@@ -7,6 +7,7 @@ import 'package:i_chat/src/presentation/screens/auth_screens/welcome_screen.dart
 import 'package:i_chat/src/presentation/screens/iChats_screens/add_member_to_group_screen.dart';
 import 'package:i_chat/src/presentation/screens/iChats_screens/iChats_screen.dart';
 import 'package:i_chat/src/presentation/screens/iChats_screens/user_chat_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import '../presentation/screens/auth_screens/error_screen.dart';
 import '../presentation/screens/auth_screens/otp_screen.dart';
 import '../presentation/screens/auth_screens/sign_up_screen.dart';
@@ -21,10 +22,6 @@ class OnGenerateRoute {
       case RouteConst.welcomeRoute:
         {
           return _toPageRoute(route: const WelcomeScreen());
-        }
-      case RouteConst.signInRoute:
-        {
-          return _toPageRoute(route: const SignInScreen());
         }
       case RouteConst.signupRoute:
         {
@@ -69,14 +66,19 @@ class OnGenerateRoute {
         {
           return _toPageRoute(route: const CreateGroupScreen());
         }
+      // default:
+      //   return _toPageRoute(route: const ErrorScreen(msg: 'Wrong page!'));
       default:
-        return _toPageRoute(route: const ErrorScreen(msg: 'Wrong page!'));
+        return _toPageRoute(route: const SignInScreen());
     }
   }
 }
 
-MaterialPageRoute _toPageRoute({required Widget route}) {
-  return MaterialPageRoute(
-    builder: (_) => route,
+PageTransition _toPageRoute({required Widget route}) {
+  return PageTransition(
+    child: route,
+    childCurrent: route,
+    duration: const Duration(milliseconds: 300),
+    type: PageTransitionType.rightToLeftJoined,
   );
 }
