@@ -13,7 +13,10 @@ class ErrorScreen extends StatelessWidget {
         child: Text(
           msg,
           style: const TextStyle(
-              color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
+            color: Colors.white,
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
