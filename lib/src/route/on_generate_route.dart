@@ -15,7 +15,7 @@ import '../presentation/screens/iChats_screens/create_group_screen.dart';
 import '../presentation/screens/iChats_screens/search_screen.dart';
 
 class OnGenerateRoute {
-  static Route<dynamic> route(RouteSettings routeSettings) {
+  static Route<dynamic> routes(RouteSettings routeSettings) {
     final args = routeSettings.arguments;
     final namesRoutes = routeSettings.name;
     switch (namesRoutes) {
@@ -37,9 +37,7 @@ class OnGenerateRoute {
             return _toPageRoute(route: OtpScreen(email: args));
           } else {
             return _toPageRoute(
-                route: const ErrorScreen(
-              msg: 'Sent otp failure!!',
-            ));
+                route: const ErrorScreen(msg: 'Sent otp failure!!'));
           }
         }
       case RouteConst.resetPasswordRoute:
@@ -78,7 +76,7 @@ PageTransition _toPageRoute({required Widget route}) {
   return PageTransition(
     child: route,
     childCurrent: route,
-    duration: const Duration(milliseconds: 300),
+    duration: const Duration(milliseconds: 450),
     type: PageTransitionType.rightToLeftJoined,
   );
 }

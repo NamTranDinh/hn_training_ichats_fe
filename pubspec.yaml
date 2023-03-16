@@ -38,7 +38,7 @@ dependencies:
   # cached_network_image:
   cached_network_image: ^3.2.2
   # flutterToast:
-  fluttertoast: ^8.1.1
+  fluttertoast: ^8.2.1
   # image_picker:
   image_picker: ^0.8.6
   # bubble:

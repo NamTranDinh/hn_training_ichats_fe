@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Colors.purple[800]),
         initialRoute: RouteConst.welcomeRoute,
-        onGenerateRoute: OnGenerateRoute.route,
+        onGenerateRoute: OnGenerateRoute.routes,
         // routes: {
         //   OnGenerateRoute.welcomeRoute: (context) {
         //     return const WelcomePage();

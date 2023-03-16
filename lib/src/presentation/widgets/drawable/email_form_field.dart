@@ -63,6 +63,7 @@ class _EmailFormFieldState extends State<EmailFormField> {
       margin: widget.margin,
       width: MediaQuery.of(context).size.width * 0.9,
       child: TextFormField(
+        scrollPadding: const EdgeInsets.only(bottom: 20),
         controller: widget.controller,
         autovalidateMode: widget.autoValidateMode ?? AutovalidateMode.disabled,
         validator: widget.validator,
@@ -77,6 +78,15 @@ class _EmailFormFieldState extends State<EmailFormField> {
         obscureText: false,
         cursorHeight: 24,
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 9,
+          ),
+          suffixIconConstraints: const BoxConstraints(
+            maxWidth: 32,
+            minWidth: 16,
+            minHeight: 16,
+          ),
           filled: true,
           fillColor: widget.backgroundColor ?? Colors.white,
           labelText: widget.labelText ?? 'Email',
@@ -93,9 +103,12 @@ class _EmailFormFieldState extends State<EmailFormField> {
               onTap: () {
                 widget.controller.clear();
               },
-              child: Icon(
-                Icons.close,
-                color: widget.borderColor ?? Colors.blue,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Icon(
+                  Icons.close,
+                  color: widget.borderColor ?? Colors.blue,
+                ),
               )),
           errorStyle: const TextStyle(color: Colors.red),
           enabledBorder:
@@ -122,7 +135,7 @@ class _EmailFormFieldState extends State<EmailFormField> {
   OutlineInputBorder outLineInputBorder(Color? borderColor) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.all(
-        Radius.circular(widget.radius ?? 6.0),
+        Radius.circular(widget.radius ?? 12.0),
       ),
       borderSide: BorderSide(
         width: widget.borderSize ?? 1.0,
